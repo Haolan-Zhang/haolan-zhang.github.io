@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Floor Plan Generator – Demo</title>
+  <meta name="description" content="A simple site that explains what the Floor Plan Generator does and shows the two-step workflow with short videos." />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1f2937;
+      --muted: #6b7280;
+      --brand: #2563eb;
+      --card: #f8fafc;
+      --border: #e5e7eb;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; line-height: 1.55; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,0.8); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+    .container { max-width: 980px; margin: 0 auto; padding: 0 16px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 0; }
+    .brand { font-weight: 700; letter-spacing: 0.2px; }
+    .nav a { margin-left: 16px; color: var(--fg); }
+
+    .hero { padding: 48px 0 24px; }
+    .hero h1 { font-size: clamp(28px, 3.6vw, 40px); margin: 0 0 8px; }
+    .hero p { color: var(--muted); margin: 0; max-width: 70ch; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 28px 0 8px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+    .card h3 { margin: 0 0 8px; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); }
+
+    .section { padding: 24px 0; }
+    .section h2 { font-size: 22px; margin: 0 0 12px; }
+
+    .step { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin: 12px 0; }
+    .step h3 { margin: 0 0 6px; }
+    .step p { margin: 0 0 8px; color: var(--muted); }
+    .step video, .step img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border); background: #000; margin-top: 12px; }
+    .caption { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
+    th { background: #f1f5f9; }
+
+    .footer { border-top: 1px solid var(--border); color: var(--muted); padding: 24px 0 40px; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <section class="hero" id="about">
+      <h1>Generative AI: From quick sketch to building layout, 3D model, and rough cost</h1>
+      <div class="cards">
+        <div class="card">
+          <h3>Time-saving and easy to use</h3>
+          <p>Quickly convert sketches into floor plans.</p>
+        </div>
+        <div class="card">
+          <h3>BIM-compatible</h3>
+          <p>Visualize the design in 3D and export to BIM platforms (e.g., Revit).</p>
+        </div>
+        <div class="card">
+          <h3>Supports value engineering</h3>
+          <p>Generate rough cost estimates for informed design decisions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="steps">
+      <h2>How it works</h2>
+
+      <!-- STEP 1 -->
+      <article class="step">
+        <h3>Step 1 — Create a sketch in the sketch editor</h3>
+        <p>Use the built‑in editor to place simple shapes that represent rooms and circulation. You can adjust sizes and positions until it matches your intent.</p>
+        <video controls preload="metadata" poster="assets/step1cover.png">
+          <source src="MP4 version/step 1. edit sketch.mp4" type="video/mp4" />
+          <p>Your browser does not support HTML video. <a href="MP4 version/step 1. edit sketch.mp4">Download Step 1 clip</a>.</p>
+        </video>
+        <div class="caption">Clip: Creating a sketch with the editor.</div>
+      </article>
+
+      <!-- STEP 2 -->
+      <article class="step">
+        <h3>Step 2 — The AI converts the sketch into a 2D floor plan, a 3D model, and a rough cost estimate using reference data (e.g., RS Means square foot costs).</h3>
+        <p>Feed the sketch to the generator. It produces a floor plan, builds a simple 3D model, and estimates cost using high‑level inputs.</p>
+        <video controls preload="metadata" poster="assets/step2cover.png">
+          <source src="MP4 version/step2. Generate and estimate cost.mp4" type="video/mp4" />
+          <p>Your browser does not support HTML video. <a href="MP4 version/step2. Generate and estimate cost.mp4">Download Step 2 clip</a>.</p>
+        </video>
+        <div class="caption">Clip: Generate floor plan → 3D model → cost estimate.</div>
+      </article>
+    </section>
+
+    <section class="footer">
+      <p>© <span id="year"></span> Floor Plan Generator. For demo purposes only.</p>
+    </section>
+  </main>
+
+  <script>
+    // Set year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
